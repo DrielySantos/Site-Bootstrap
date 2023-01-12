@@ -1,9 +1,12 @@
 <?php
-require_once 'head.php';
+// require_once 'head.php';
 include_once 'conexao.php';
 ?>
 
 <?php
+
+echo "senha".password_hash(123, PASSWORD_DEFAULT);
+
 $dadoslogin = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 if (!empty($dadoslogin['btnlogin'])) {
   $buscalogin = "SELECT matricula, nome, email, senha
@@ -23,20 +26,14 @@ if(($resultado) AND ($resultado->rowCount() !=0)){
 if(password_verify($dadoslogin['senha'], $resposta['senha'])){
   header("Location: administrativo.php");
   }
-  else{
+else{
     echo "Usuário ou senha Inválido!";
   }
-
-else {
-  echo "Usuário ou senha Inválido"
+}
+else{
+  echo "Usuário ou senha Inválido";
  }
 }
-
-
-
-
-
-
 
 
 // rowCount = numero de linha //
