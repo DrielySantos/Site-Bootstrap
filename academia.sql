@@ -99,8 +99,6 @@ create table venda(
 	cpffuncionario char(14)not null,
 	foreign key(codigoproduto)references produto(codigoproduto),
 	foreign key(cpffuncionario)references funcionario(cpffuncionario));
-	
-	
 
 insert into endereco(cep,rua,bairro,cidade,uf)VALUES
 ('23085-610','Rua Padre Pauwels','Campo Grande','Rio de Janeiro','RJ'),
